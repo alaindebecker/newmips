@@ -12,7 +12,6 @@ readEntity = (entity) =>
 			function (err, res, body) {
 				if(err) throw err;
 				var token = JSON.parse(body).token;
-				console.log(url);
 				request(url+entity+'?token='+token+'&limit=1000&offset=0',
 					function (err, res, body) {
 						if(err) throw err;
