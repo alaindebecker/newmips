@@ -17,7 +17,6 @@ readEntity = (entity) =>
 					function (err, res, body) {
 						if(err) throw err;
 						var data = JSON.parse(body)[entity+'s'];
-						console.log(data);
 						for(var row of data){
 							delete row.version;
 							delete row.createdAt;
