@@ -10,11 +10,11 @@ readEntity = (entity) =>
 		request(
 			{ url : url+'getToken', headers : { "Authorization" : auth }},
 			function (err, res, body) {
-				if(err) throw err;
+				if(err) error(err);
 				var token = JSON.parse(body).token;
 				request(url+entity+'?token='+token+'&limit=1000&offset=0',
 					function (err, res, body) {
-						if(err) throw err;
+						if(err) error(err);
 						var data = JSON.parse(body)[entity+'s'];
 						for(var row of data){
 							delete row.version;
